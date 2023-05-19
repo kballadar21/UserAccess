@@ -1,0 +1,22 @@
+<h2><b>REGISTRO</b></h2>
+
+<form [formGroup]="registroForm" (ngSubmit)="registrar()">
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" formControlName="nombre" required>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" formControlName="email" required>
+  </div>
+
+  <div class="form-group">
+    <label for="contrasena">Contraseña:</label>
+    <input type="password" id="contrasena" formControlName="contrasena" required>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" [disabled]="!registroForm.valid">Registrar</button>
+  </div>
+</form>
