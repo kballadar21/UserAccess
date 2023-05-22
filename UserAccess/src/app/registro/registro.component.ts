@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -14,12 +16,14 @@ export class RegistroComponent {
     this.registroForm = this.formBuilder.group({
       nombre: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      dni: ['', Validators.required],
       contrasena: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
   registrar(): void {
     if (this.registroForm.valid) {
+  
       // Realizar el registro y redirigir a la página de inicio de sesión
       this.router.navigate(['/inicio-sesion']);
     } else {
@@ -27,4 +31,5 @@ export class RegistroComponent {
       alert('Por favor, complete correctamente todos los campos');
     }
   }
+  
 }
